@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Route, NavLink, HashRouter} from "react-router-dom"
+import SplashPage from './Pages/SplashPage'
 import './App.css';
+
+const defaultUser = {
+  userID: undefined,
+  name: undefined,
+  userPreferences: {}
+}
+
+const UserContext = React.createContext(defaultUser)
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <UserProvider>
+      <div className="content">
+        <Route exact path="/" component={SplashPage}/>
+        <Route path="/stuff" component={LoginPage}/>
+        <Route path="/contact" component={ListsPage}/>
+        <Route path="/contact" component={ListItemsPage}/>
+        <Route path="/contact" component={SettingsPage}/>
+      </div>
+      </UserProvider>
+    </HashRouter>
   );
 }
 

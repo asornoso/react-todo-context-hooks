@@ -1,0 +1,122 @@
+
+.list .grid-container{
+  display:grid;
+  grid-template-columns: 10%  80%  10%;
+  grid-template-rows: 10%  10%  80%;
+}
+
+.full-page{
+  width:100vw;
+  height:100vh;
+}
+
+.list .back-button{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.list .menu-button{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.list .header{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.list .folders-list{
+  justify-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+
+.taskItem {
+  width: 50vw;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 100%;
+  border-bottom: 1px solid white;
+}
+
+.taskItem .status{
+  justify-self: left;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.taskItem .name{
+  justify-self: left;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.taskItem .cancel{
+  justify-self: right;
+  align-self: center;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.taskInput{
+  width: 50vw;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+}
+
+
+.taskInput .userInput{
+  width: 100%;
+  justify-self: left;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.taskInput .add{
+  justify-self: right;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.checkbox{
+  width: 1rem;
+  height:1rem;
+  border: 1px solid white;
+  background-color: black;
+}
+
+.checkbox.checked {
+  background-color: #fafafa  ;
+}

@@ -1,0 +1,102 @@
+
+.home .grid-container{
+  display:grid;
+  grid-template-columns: 10%  80%  10%;
+  grid-template-rows: 10%  10%  80%;
+}
+
+.full-page{
+  width:100vw;
+  height:100vh;
+}
+
+.home .back-button{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.home .menu-button{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.home .header{
+  justify-self: center;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.home .folders-list{
+  justify-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+
+.folderItem {
+  width: 50vw;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+  border-bottom: 1px solid white;
+}
+
+.folderItem .name{
+  justify-self: left;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.folderItem .cancel{
+  justify-self: right;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.folderInput{
+  width: 50vw;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 100%;
+}
+
+
+.folderInput .userInput{
+  width: 100%;
+  justify-self: left;
+  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.folderInput .add{
+  justify-self: right;
+  align-self: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
