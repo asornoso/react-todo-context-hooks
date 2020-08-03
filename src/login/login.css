@@ -45,3 +45,20 @@
   grid-row-start: 3;
   grid-row-end: 4;
 }
+
+
+@media only screen and (max-width: 900px){
+  .login .logo{
+    height: 60%;
+    width: auto;
+    max-height:450px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .login .logo{
+    height: 45%;
+    width: auto;
+    max-height:350px;
+  }
+}
