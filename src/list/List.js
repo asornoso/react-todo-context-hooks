@@ -53,7 +53,7 @@ const ListPage = () => {
         </div>
 
         <div className="header">
-          <h2>{state?.folder?.name}</h2>
+          <h2>{state?.folder?.name.toUpperCase()}</h2>
         </div>
 
         <div className="folders-list">

@@ -79,6 +79,7 @@
   display: grid;
   grid-template-columns: 90% 10%;
   grid-template-rows: 100%;
+  margin-bottom: 15px;
 }
 
 
@@ -99,4 +100,27 @@
   grid-column-end: 3;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+
+@media only screen and (max-width: 900px){
+  .home .grid-container{
+    display:grid;
+    grid-template-columns: 15%  70%  15%;
+    grid-template-rows: 10%  10%  80%;
+  }
+
+  .folderInput{
+    width: 65vw;
+    grid-template-columns: 85% 15%;
+  }
+
+  .folderItem {
+    width: 70vw;
+    height: 3rem;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: 100%;
+    border-bottom: 1px solid white;
+  }
 }
