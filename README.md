@@ -7,9 +7,9 @@ You can test out this project by visiting: https://todoapp-c4c4a.firebaseapp.com
 
 ## Information
 
-This demo was built using create-react-app(React.js) and all of it's bundled dependencies. .<br />
+This demo was built using create-react-app(React.js) and all of it's bundled dependencies. <br />
 
-It connects to Google's Firestore  database and is hosted on Firebase as well. .<br />
+It connects to Google's Cloud Firestore for data storage, uses Firebase Authentication, and is hosted on Firebase as well. <br />
 
 A custom Context was created for a minimal global state(to prevent performance issues).
 This custom class includes 2 Contexts, one for state and one for dispatching events to udpate the state.
