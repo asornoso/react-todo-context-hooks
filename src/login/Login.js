@@ -40,12 +40,12 @@ const LoginPage = () => {
 
   return (
     <div className='login'>
+    
+      <div className='back-button'>
+        <FloatingButton type="back" size="medium" onClick={ ()=>{ history.goBack()}}/>
+      </div>
 
       <div className="grid-container   full-page">
-
-        <div className='back-button'>
-          <FloatingButton type="back" size="medium" onClick={ ()=>{ history.goBack()}}/>
-        </div>
 
         <div className="logo-container">
             <img className='logo' src={require('../common/resources/logo.png')} alt='logo'/>

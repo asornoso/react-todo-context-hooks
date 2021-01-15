@@ -7,9 +7,6 @@ const SplashPage = () => {
     <div className='login'>
       <div className="grid-container   full-page">
 
-        <div className='back-button'>
-        </div>
-
         <div className="logo-container">
             <img className='logo' src={require('../common/resources/logo.png')} alt='logo'/>
         </div>
