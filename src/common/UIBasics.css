@@ -91,16 +91,17 @@ a:hover, a:visited, a:link, a:active{
 }
 
 .floating-button{
-  display:table-cell;
-  vertical-align:middle;
-  text-align:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   background-color: rgba(236, 239, 241, 0.1);
 }
 
 .floating-button img {
-  width: 70%;
-  height: 70%;
+  width: 55%;
+  height: 55%;
 }
 
 .floating-button-large{

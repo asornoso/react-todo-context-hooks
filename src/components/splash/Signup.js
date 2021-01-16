@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory} from "react-router-dom"
-import {Button, Input, FloatingButton} from '../common/UIBasics.js'
-import {UserContext} from '../index.js'
-import '../login/login.css'
+import {Button, Input, FloatingButton} from '../../common/UIBasics.js'
+import {UserContext} from '../../index.js'
 
 let state, dispatch, history
 
@@ -21,7 +20,7 @@ const submit = ( email, password, confirmPassword, name, e) => {
     console.log('invalid email, password or confirmPassword')
 }
 
-const SignupPage = () => {
+const SignupForm = () => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -38,32 +37,17 @@ const SignupPage = () => {
 
 
   return (
-    <div className='login'>
-
-      <div className='back-button'>
-        <FloatingButton type="back" size="medium" onClick={ ()=>{ history.goBack()}}/>
-      </div>
-
-      <div className="grid-container   full-page">
-
-        <div className="logo-container">
-            <img className='logo' src={require('../common/resources/logo.png')} alt='logo'/>
-        </div>
-
-        <div className="form">
-          <form onSubmit={(e) => {submit(email ,password, confirmPassword, name, e) }} >
-            <Input name="name" onChange={e => setName(e.target.value)} />
-            <Input name="email" type='email' onChange={e => setEmail(e.target.value)} />
-            <Input name="password" type='password' onChange={e => setPassword(e.target.value)}/>
-            <Input name="confirmPassword" type='password' onChange={e => setConfirmPassword(e.target.value)}/>
-            <Button text='Sign up'  />
-          </form>
-        </div>
-
-      </div>
+    <div className="form">
+      <form onSubmit={(e) => {submit(email ,password, confirmPassword, name, e) }} >
+        <Input name="name" onChange={e => setName(e.target.value)} />
+        <Input name="email" type='email' onChange={e => setEmail(e.target.value)} />
+        <Input name="password" type='password' onChange={e => setPassword(e.target.value)}/>
+        <Input name="confirmPassword" type='password' onChange={e => setConfirmPassword(e.target.value)}/>
+        <Button text='Sign up'  />
+      </form>
     </div>
 
   )
 }
 
-export default SignupPage
+export default SignupForm

@@ -1,8 +1,8 @@
 import React, {useEffect, useState, useRef} from 'react';
 import { useHistory} from "react-router-dom"
-import { FloatingButton, Input} from '../common/UIBasics.js'
-import {UserContext} from '../index.js'
-import '../list/list.css'
+import { FloatingButton, Input} from '../../common/UIBasics.js'
+import {UserContext} from '../../index.js'
+import './list.css'
 
 let state, dispatch, history
 
@@ -89,7 +89,7 @@ const TaskItem = (props) => {
       }}>{props.data.status}
         {
           props.data.status ?
-             <div className='checkbox checked' > <img src={require('../common/resources/tick.svg')}/>  </div>
+             <div className='checkbox checked' > <img src={require('../../common/resources/tick.svg')}/>  </div>
           :
              <div className='checkbox' > </div>
         }

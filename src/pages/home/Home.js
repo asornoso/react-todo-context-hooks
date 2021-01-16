@@ -1,8 +1,11 @@
 import React, {useEffect, useState, useRef} from 'react';
 import {NavLink, useHistory} from "react-router-dom"
-import { FloatingButton, Input} from '../common/UIBasics.js'
-import {UserContext} from '../index.js'
+import { FloatingButton, Input} from '../../common/UIBasics.js'
+import {UserContext} from '../../index.js'
 import './home.css'
+
+import AddFolderInput from '../../components/home/AddFolderInput.js'
+import FolderItem from '../../components/home/FolderItem.js'
 
 let state, dispatch, history
 
@@ -67,46 +70,6 @@ const HomePage = () => {
   )
 }
 
-const FolderItem = (props) => {
-  return (
-    <div className='folderItem'>
-      <NavLink to='list' className='name' onClick={ ()=>dispatch({type: 'update_folder', value: props.folder})} >
-          {props.folder.name.toUpperCase()}
-      </NavLink>
-      <div className='cancel'>
-        <FloatingButton type='cancel' size='small' onClick={ () => {
-           state.firebase.deleteFolder(props.folder.id, state.id).then( ()  => {
-            props.update()
-           })
-         }} />
-      </div>
-    </div>
-  )
-}
 
-const AddFolderInput = (props) => {
-  const [folderName, setFolderName] = useState("")
-  const input = useRef('')
-
-  return (
-    <div className='folderInput'>
-      <div className='userInput'>
-        <Input type='text' size='inherit' useRef={input} name='add folder...' value={folderName} onChange={(e) => setFolderName(e.target.value)}/>
-      </div>
-      <div className='add'>
-        <FloatingButton type="add" size="small" onClick={ ()=>{
-          if(folderName.length > 0){
-            state.firebase.createFolder(folderName, state.id).then( () => {
-              input.current.value = ""
-              props.update()
-            })
-          }else
-            console.log('folder name invalid')
-        }}/>
-      </div>
-
-    </div>
-  )
-}
 
 export default HomePage

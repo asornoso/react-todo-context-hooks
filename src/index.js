@@ -5,11 +5,9 @@ import CustomContext from './customContext.js'
 
 import Firebase from './firebase.js'
 
-import SplashPage from './splash/Splash.js'
-import HomePage from './home/Home.js'
-import ListPage from './list/List.js'
-import LoginPage from './login/Login.js'
-import SignupPage from './signup/Signup.js'
+import SplashPage from './pages/splash/Splash.js'
+import HomePage from './pages/home/Home.js'
+import ListPage from './pages/list/List.js'
 
 
 //Setup the user context(
@@ -51,8 +49,6 @@ function App() {
       <UserContext.Provider>
         <div className="content">
           <Route exact path="/" component={SplashPage}/>
-          <Route path="/login" component={LoginPage}/>
-          <Route path="/signup" component={SignupPage}/>
           <Route path="/home" component={HomePage}/>
           <Route path="/list" component={ListPage}/>
         </div>
