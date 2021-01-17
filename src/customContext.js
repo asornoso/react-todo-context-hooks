@@ -1,44 +1,24 @@
-import React from 'react';
+import React, {createContext, useReducer} from 'react'
 
-class CustomContext {
+//contains state
+export const State = createContext()
 
-  constructor(initalState, reducer){
-    this.Context = React.createContext()
-    this.Dispatch = React.createContext()
-    this.initialState = initalState
-    this.reducer = reducer
-  }
+//contains dispatch
+export const Dispatch = createContext()
 
-  Provider = ({children}) => {
-    const [state, dispatch] = React.useReducer(this.reducer, this.initialState)
-    return (
-      <this.Context.Provider value={state}>
-        <this.Dispatch.Provider value={dispatch}>
+//Takes in an initialState, reducer, and children(components) as props
+//Returns provider
+const CustomContext = ({initialState, reducer, children}) => {
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  return (
+      <State.Provider value={state} >
+        <Dispatch.Provider value={dispatch} >
           {children}
-        </this.Dispatch.Provider>
-      </this.Context.Provider>
-    )
-
-  }
-
-
-  useState = () => {
-    const context = React.useContext(this.Context)
-    if (context === undefined) {
-      throw new Error('useState must be used within a custom context')
-    }
-    return context
-  }
-
-  useDispatch = () => {
-    const context = React.useContext(this.Dispatch)
-    if (context === undefined) {
-      throw new Error('useDispatch must be used within a custom context')
-    }
-    return context
-  }
-
-
+        </Dispatch.Provider>
+      </State.Provider>
+  )
 
 }
 

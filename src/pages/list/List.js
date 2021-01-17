@@ -1,21 +1,18 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { useHistory} from "react-router-dom"
-import { FloatingButton, Input} from '../../common/UIBasics.js'
-import {UserContext} from '../../index.js'
+import { FloatingButton} from '../../common/UIBasics.js'
+import {State, Dispatch} from '../../customContext.js'
 import './list.css'
 
-let state, dispatch, history
+import TaskItem from '../../components/list/TaskItem'
+import AddTaskInput from '../../components/list/AddTaskInput'
 
-function logout(){
-  state.firebase.logout()
-  history.push('/login')
-}
 
 const ListPage = () => {
-  state = UserContext.useState()
-  dispatch = UserContext.useDispatch()
+  const state = useContext(State)
+  const dispatch = useContext(Dispatch)
 
-  history = useHistory()
+  const history = useHistory()
 
   const [tasks, setTasks] = useState([])
   const [taskChanges, setTaskChange] = useState(0)
@@ -36,6 +33,11 @@ const ListPage = () => {
       }).catch( error => console.log(error))
     }
   }, [taskChanges])
+
+  const logout = () => {
+    state.firebase.logout()
+    history.push('/login')
+  }
 
 
 
@@ -75,62 +77,6 @@ const ListPage = () => {
         </div>
 
       </div>
-    </div>
-  )
-}
-
-const TaskItem = (props) => {
-  return (
-    <div className='taskItem'>
-      <div className='status' onClick={()=> {
-        console.log('you clicked me')
-        state.firebase.updateTask(props.data.id, state.folder.id, state.id, {...props.data, editedOn: Date.now(), status: !props.data.status})
-        .then( data => props.update())
-      }}>{props.data.status}
-        {
-          props.data.status ?
-             <div className='checkbox checked' > <img src={require('../../common/resources/tick.svg')}/>  </div>
-          :
-             <div className='checkbox' > </div>
-        }
-      </div>
-      <div className='name'>
-          {props.data.task.toUpperCase()}
-      </div>
-      <div className='cancel'>
-        <FloatingButton type='cancel' size='small' onClick={ () => {
-           console.log(`deleting task ${props.data.task }`)
-           state.firebase.deleteTask(props.data.id, state.folder.id, state.id)
-           .then( data =>   props.update() )
-         }} />
-      </div>
-
-    </div>
-  )
-}
-
-const AddTaskInput = (props) => {
-  const [taskName, setTaskName] = useState("")
-  const input = useRef('')
-
-
-  return (
-    <div className='taskInput'>
-      <div className='userInput'>
-        <Input type='text' size='inherit' useRef={input} name='add task...' onChange={(e) => setTaskName(e.target.value)}/>
-      </div>
-      <div className='add'>
-        <FloatingButton type="add" size="small" onClick={ ()=>{
-          if(taskName.length > 0){
-            state.firebase.addTask(taskName, state.folder.id, state.id).then( (data) => {
-              props.update()
-              input.current.value = ""
-            })
-          }else
-            console.log('folder name invalid')
-        }}/>
-      </div>
-
     </div>
   )
 }

@@ -5,6 +5,8 @@ import './login.css'
 import LoginForm from '../../components/splash/Login.js'
 import SignUpForm from '../../components/splash/Signup.js'
 
+import LOGO from '../../common/resources/logo.png'
+
 const SplashPage = () => {
 
   const SPLASH = 0
@@ -23,13 +25,10 @@ const SplashPage = () => {
     switch(form){
       case SPLASH:
         return splash
-        break;
       case LOGIN:
         return <LoginForm />
-        break;
       case SIGNUP:
         return <SignUpForm />
-        break
       default:
         return splash
     }
@@ -46,7 +45,7 @@ const SplashPage = () => {
       }
 
         <div className="logo-container">
-            <img className='logo' src={require('../../common/resources/logo.png')} alt='logo'/>
+            <img className='logo' src={LOGO} alt='logo'/>
         </div>
 
         <div className="form">

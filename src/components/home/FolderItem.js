@@ -1,13 +1,13 @@
-import React from 'react';
+import React,  {useContext} from 'react';
 import {NavLink} from "react-router-dom"
-import {Input, FloatingButton} from '../../common/UIBasics.js'
-import {UserContext} from '../../index.js'
+import { FloatingButton} from '../../common/UIBasics.js'
+import {State, Dispatch} from '../../customContext'
 
 
 const FolderItem = (props) => {
 
-  const state = UserContext.useState()
-  const dispatch = UserContext.useDispatch()
+  const state = useContext(State)
+  const dispatch = useContext(Dispatch)
 
   return (
     <div className='folderItem'>

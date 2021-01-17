@@ -1,23 +1,20 @@
-import React, {useEffect, useState, useRef} from 'react';
-import {NavLink, useHistory} from "react-router-dom"
-import { FloatingButton, Input} from '../../common/UIBasics.js'
-import {UserContext} from '../../index.js'
+import React, {useEffect, useState, useContext} from 'react';
+import {useHistory} from "react-router-dom"
+import { FloatingButton} from '../../common/UIBasics.js'
+import {State, Dispatch} from '../../customContext'
 import './home.css'
 
 import AddFolderInput from '../../components/home/AddFolderInput.js'
 import FolderItem from '../../components/home/FolderItem.js'
 
-let state, dispatch, history
 
-function logout(){
-  state.firebase.logout()
-  history.push('/')
-}
 
 const HomePage = () => {
-  state = UserContext.useState()
-  dispatch = UserContext.useDispatch()
-  history = useHistory()
+
+
+  const state = useContext(State)
+  const dispatch = useContext(Dispatch)
+  const history = useHistory()
 
   const [folders, setFolders] = useState([])
   const [folderChanges, setFolderChange] = useState(0)
@@ -37,6 +34,11 @@ const HomePage = () => {
       }).catch( error => console.log(error))
     }
   }, [folderChanges])
+
+  const logout = () => {
+    state.firebase.logout()
+    history.push('/')
+  }
 
 
 

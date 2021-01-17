@@ -1,7 +1,7 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useContext} from 'react';
 
 import {Input, FloatingButton} from '../../common/UIBasics.js'
-import {UserContext} from '../../index.js'
+import {State} from '../../customContext.js'
 
 
 
@@ -10,7 +10,7 @@ const AddFolderInput = (props) => {
   const [folderName, setFolderName] = useState("")
   const input = useRef('')
 
-  const state = UserContext.useState()
+  const state = useContext(State)
 
   return (
     <div className='folderInput'>

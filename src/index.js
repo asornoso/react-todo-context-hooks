@@ -41,22 +41,20 @@ const reducer = (state, action) => {
     }
 }
 
-const UserContext = new CustomContext(initialState, reducer)
 
 function App() {
   return (
     <HashRouter>
-      <UserContext.Provider>
+      <CustomContext initialState={initialState} reducer={reducer}>
         <div className="content">
           <Route exact path="/" component={SplashPage}/>
           <Route path="/home" component={HomePage}/>
           <Route path="/list" component={ListPage}/>
         </div>
-      </UserContext.Provider>
+      </CustomContext>
     </HashRouter>
   )
 }
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
-export {UserContext}
